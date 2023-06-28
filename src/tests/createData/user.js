@@ -1,4 +1,4 @@
-const User = require("../models/User")
+const User = require("../../models/User")
 
 const user = async() =>{
     
@@ -10,5 +10,6 @@ const user = async() =>{
         phone:"1234567"
     }
 
-    await User.create
+    await User.create(userCreate)
 }
+module.exports = user

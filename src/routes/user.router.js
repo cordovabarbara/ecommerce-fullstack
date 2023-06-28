@@ -17,3 +17,4 @@ routerUser.route('/:id')
     .put(verifyJWT, update);
 
 module.exports = routerUser;
+    
