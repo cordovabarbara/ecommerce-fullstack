@@ -5,7 +5,7 @@ const main = async() => {
     try{
         await sequelize.sync({ force: true });
         await user()
-        console.log('Me ejecute 🦄👻');
+        console.log('Me ejecute 🦄 👻');
         process.exit();
     } catch(error){
         console.log(error);
