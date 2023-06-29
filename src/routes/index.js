@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.use('/users',routerUser)
 router.use('/categories', routerCategory)
-route.use('/products', routerProduct)
+router.use('/products', routerProduct)
+router.use('/cart', routerCart)
 
 module.exports = router;
