@@ -38,7 +38,7 @@ test("GET -> 'URL_PURCHASE', should return status code 200 and res.body length =
     const res = await request(app)
       .get(URL_PURCHASE)
       .set("Authorization", `Bearer ${TOKEN}`)
-    console.log(res.body);
+      console.log(res.body);
 
     expect(res.status).toBe(200);
     expect(res.body).toHaveLength(1);
