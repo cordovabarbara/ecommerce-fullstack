@@ -4,8 +4,9 @@ const Category = require("../models/Category")
 require ("../models")
 
 const BASE_URL_USERS ='/api/v1/users/login'
-const BASE_URL = '/api/v1/products'
 let TOKEN
+const BASE_URL = '/api/v1/products'
+
 let category
 let productId
 
@@ -60,13 +61,11 @@ test("GET -> 'BASE_URL?category' should status code 200 and, res.body.length ===
 test("GET -> 'BASE_URL' should status code 200 and res.body.length === 1",async()=>{
  
     const res = await request(app).get(BASE_URL)
-    console.log(res.body)
+
     expect(res.status).toBe(200)
     expect(res.body).toHaveLength(1)
     expect(res.body[0]).toBeDefined()
-})
-
-
+});
 
 test("GET ONE -> 'BASE_URL/:id', should return status code 200 and res.body.title === iphone 14",async()=>{
 
@@ -99,7 +98,6 @@ test("DELETE -> 'BASE_URL/:id' should status code 204",async()=>{
         .set("Authorization", `Bearer ${TOKEN}`)
           
     expect(res.status).toBe(204)
-
     await category.destroy()
 })
 
