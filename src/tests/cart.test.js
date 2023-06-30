@@ -20,10 +20,9 @@ beforeAll(async()=>{
         .post(BASE_URL_USER)
         .send(user)
 
-
     TOKEN = res.body.token
     userId= res.body.user.id
-})
+});
 
 test("POST -> 'URL_BASE_CART',should return status code 201 and res.body.quantity === body.quantity", async()=>{
 
@@ -50,7 +49,7 @@ test("POST -> 'URL_BASE_CART',should return status code 201 and res.body.quantit
 
     expect(res.status).toBe(201)
     expect(res.body.quantity).toBe(cartBody.quantity)
-})
+});
 
 test("GET -> 'URL_BASE_CART', sholud return status code 200 and res.body.length === 1", async()=>{
 
@@ -60,8 +59,7 @@ test("GET -> 'URL_BASE_CART', sholud return status code 200 and res.body.length 
 
     expect(res.status).toBe(200)
     expect(res.body).toHaveLength(1)
-
-})
+});
 
 test("PUT -> 'URL_BASE_CART/:id',should return status code 200 and res.body.quantity === body.quantity", async()=>{
  
@@ -76,7 +74,7 @@ test("PUT -> 'URL_BASE_CART/:id',should return status code 200 and res.body.quan
 
     expect(res.status).toBe(200)
     expect(res.body.quantity).toBe(cartBody.quantity)
-})
+});
 
 test("DELETE -> 'URL_BASE_CART/:id',should return status code 204", async()=>{
  
