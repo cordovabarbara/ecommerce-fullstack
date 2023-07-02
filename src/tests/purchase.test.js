@@ -49,13 +49,14 @@ test("POST -> 'URL_PURCHASE', should return status code 201 and res.body.quantit
 
   });
 
-test("GET -> 'URL_PURCHASE', should return status code 200 and res.body length === 1", async () => {
+  test("GET -> 'URL_PURCHASE',should return status code 200 res.body.length === 1", async()=>{
+
     const res = await request(app)
-      .get(URL_PURCHASE)
-      .set("Authorization", `Bearer ${TOKEN}`)
+        .get(URL_PURCHASE)
+        .set("Authorization", `Bearer ${TOKEN}`)
 
     expect(res.status).toBe(200)
     expect(res.body).toHaveLength(1)
 
     await product.destroy()
-  });
+})
