@@ -2,7 +2,7 @@ const request = require('supertest')
 const app = require('../app')
 require("../models")
 const Category = require('../models/Category')
-////////////////////////////
+
 const BASE_URL_USERS = '/api/v1/users/login'
 let TOKEN 
 const BASE_URL_PRODUCTS = '/api/v1/products'
@@ -74,7 +74,7 @@ test("GET ONE -> 'BASE_URL_PRODUCTS/:id' should status code 200 and res.body.tit
  
     const res = await request(app)
         .get(`${BASE_URL_PRODUCTS}/${productId}`)
-          
+
     expect(res.status).toBe(200)
     expect(res.body.title).toBe("xiaomi 12")
     expect(res.body.category).toBeDefined()
@@ -90,17 +90,17 @@ test("PUT -> 'BASE_URL_PRODUCTS/:id' should status code 200 and res.body.title =
         .put(`${BASE_URL_PRODUCTS}/${productId}`)
         .send(product)
         .set("Authorization", `Bearer ${TOKEN}`)
-          
+
     expect(res.status).toBe(200)
     expect(res.body.title).toBe(product.title)
 })
 
 test("DELETE -> 'BASE_URL_PRODUCTS/:id' should status code 204",async()=>{
-     
+
     const res = await request(app)
         .delete(`${BASE_URL_PRODUCTS}/${productId}`)
         .set("Authorization", `Bearer ${TOKEN}`)
-          
+
     expect(res.status).toBe(204)
 
     await category.destroy()
